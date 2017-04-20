@@ -1,0 +1,13 @@
+ul{
+    width: 500px;
+    overflow: hidden;
+}
+li{
+    list-style: none;
+    float: left;
+    width: 500px;
+}
+li img{
+    width: 500px;
+    height: 300px;
+}
