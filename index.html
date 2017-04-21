@@ -7,10 +7,41 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<ul>
-    <li><img src="img/one.jpg"/></li>
-    <li><img src="img/two.jpg"/></li>
-    <li><img src="img/three.jpg"/></li>
-</ul>
+<div class="wind">
+    <ul id="myul">
+        <li><img src="img/one.jpg"/></li>
+        <li><img src="img/two.jpg"/></li>
+        <li><img src="img/three.jpg"/></li>
+    </ul>
+</div>
+
+<div class="mybutton"></div>
+<div class="mybutton2"></div>
+
+<script>
+    var purse =0;
+    document.getElementsByClassName('mybutton')[0].onclick=function () {
+        purse++;
+        console.log(purse);
+        document.getElementById('myul').style.marginLeft = -500*purse+'px';
+        if(purse>2){
+            purse = -1;
+            purse++;
+            console.log(purse);
+            document.getElementById('myul').style.marginLeft = -500*purse+'px';
+        }
+    }
+    document.getElementsByClassName('mybutton2')[0].onclick=function () {
+        purse--;
+        console.log(purse);
+        document.getElementById('myul').style.marginLeft = -500*purse+'px';
+        if(purse<0){
+            purse=3;
+            purse--;
+            console.log(purse);
+            document.getElementById('myul').style.marginLeft = -500*purse+'px';
+        }
+    }
+</script>
 </body>
 </html>

@@ -1,13 +1,35 @@
-ul{
+body{
+    padding: 0;
+    margin: 0;
+}
+.wind{
     width: 500px;
     overflow: hidden;
 }
+ul{
+    width: 1500px;
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+}
 li{
-    list-style: none;
+    list-style-type: none;
+    display: block;
     float: left;
     width: 500px;
 }
 li img{
     width: 500px;
     height: 300px;
+}
+.mybutton{
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+}
+.mybutton2{
+    width: 100px;
+    height: 100px;
+    background-color: #439916;
 }
