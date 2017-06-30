@@ -1,35 +1,39 @@
 body{
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 .wind{
-    width: 500px;
+    display: flex;
+    align-items: center;
+}
+.swiper{
     overflow: hidden;
 }
-ul{
-    width: 1500px;
-    margin: 0;
-    padding: 0;
+.swiper ul{
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
 
+    left: 0px;
     position: relative;
 }
-li{
+.swiper li{
+    width: 1000px;
+    height: 100%;
     list-style-type: none;
-    display: block;
     float: left;
-    width: 500px;
+    display: inline;
 }
-li img{
-    width: 500px;
-    height: 300px;
+.swiper li img{
+    width: 100%;
+    height: 100%;
 }
 .mybutton{
-    width: 100px;
-    height: 100px;
-    background-color: rebeccapurple;
+    width: 50px;height: 50px;background-color: red;
+    vertical-align: middle;
 }
 .mybutton2{
-    width: 100px;
-    height: 100px;
-    background-color: #439916;
+    width: 50px;height: 50px;background-color: blueviolet;
+    vertical-align: middle;
 }

@@ -2,47 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>我自己写的轮播图</title>
-    <style></style>
-    <link rel="stylesheet" href="css/index.css">
+    <title>自己的轮播</title>
+    <style>
+        /*css代码*/
+    </style>
+    <link href="css/index.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="wind">
-    <ul id="myul">
-        <li><img src="img/one.jpg"/></li>
-        <li><img src="img/two.jpg"/></li>
-        <li><img src="img/three.jpg"/></li>
-    </ul>
+    <div class="mybutton"></div>
+    <div class="swiper">
+        <ul id="myul">
+            <li><img src="img/one.jpg"/></li>
+            <li><img src="img/two.jpg"/></li>
+            <li><img src="img/three.jpg"/></li>
+            <li><img src="img/four.jpg"/></li>
+        </ul>
+    </div>
+    <div class="mybutton2"></div>
 </div>
-
-<div class="mybutton"></div>
-<div class="mybutton2"></div>
-
 <script>
+    function swip(picWidth,picHeigh) {
+        var liWidth = picWidth;
+        var liHeign = picHeigh;
 
-    var purse =0;
-    document.getElementsByClassName('mybutton')[0].onclick=function () {
-        purse++;
-        console.log(purse);
-        document.getElementById('myul').style.marginLeft = -500*purse+'px';
-        if(purse>2){
-            purse = -1;
-            purse++;
-            console.log(purse);
-            document.getElementById('myul').style.marginLeft = -500*purse+'px';
+        var picNum = document.getElementById("myul").getElementsByTagName("li").length;
+        var clicknum = 0;
+
+        document.getElementById("myul").style.width = picNum * liWidth + "px";
+        document.getElementsByClassName("swiper")[0].style.width = liWidth + "px";
+        document.getElementsByClassName("swiper")[0].style.height = liHeign + "px";
+
+        var lis = document.getElementsByTagName("li");
+        for(var i = 0;i<lis.length;i++){
+            lis[i].style.width = liWidth + "px";
+        }
+
+        document.getElementsByClassName('mybutton')[0].onclick=function () {
+            clicknum++;
+            if(clicknum<picNum){
+                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
+            }
+            if(clicknum==picNum){
+                clicknum = 0;
+                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
+            }
+        }
+        document.getElementsByClassName('mybutton2')[0].onclick=function () {
+            clicknum--;
+            if(clicknum<picNum){
+                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
+            }
+            if(clicknum<0){
+                clicknum = picNum-1;
+                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
+            }
         }
     }
-    document.getElementsByClassName('mybutton2')[0].onclick=function () {
-        purse--;
-        console.log(purse);
-        document.getElementById('myul').style.marginLeft = -500*purse+'px';
-        if(purse<0){
-            purse=3;
-            purse--;
-            console.log(purse);
-            document.getElementById('myul').style.marginLeft = -500*purse+'px';
-        }
-    }
+    new swip(500,300);
 </script>
 </body>
 </html>
