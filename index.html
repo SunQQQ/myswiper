@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>自己的轮播</title>
-    <style>
-        /*css代码*/
-    </style>
+    <style></style>
     <link href="css/index.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <div class="wind">
-    <div class="mybutton"></div>
-    <div class="swiper">
+    <div class="swiper" onmouseenter="moveEnter()" onmouseout="moveOut()">
         <ul id="myul">
             <li><img src="img/one.jpg"/></li>
             <li><img src="img/two.jpg"/></li>
@@ -19,47 +16,23 @@
             <li><img src="img/four.jpg"/></li>
         </ul>
     </div>
-    <div class="mybutton2"></div>
+    <div class="mybutton" onmouseenter="moveEnter()"></div>
+    <div class="mybutton2" id="mybutton2" onmouseenter="moveEnter()"></div>
+    <div class="points">
+            <div class="pos">
+                <div class="po">1</div>
+                <div class="po">1</div>
+                <div class="po">1</div>
+                <div class="po">1</div>
+            </div>
+    </div>
 </div>
+<div style="width: 500px;height: 100px;border: 1px solid red;text-align: center">
+    <div style="width: 150px">shuoshuo</div>
+</div>
+<script src="js/index.js"></script>
 <script>
-    function swip(picWidth,picHeigh) {
-        var liWidth = picWidth;
-        var liHeign = picHeigh;
-
-        var picNum = document.getElementById("myul").getElementsByTagName("li").length;
-        var clicknum = 0;
-
-        document.getElementById("myul").style.width = picNum * liWidth + "px";
-        document.getElementsByClassName("swiper")[0].style.width = liWidth + "px";
-        document.getElementsByClassName("swiper")[0].style.height = liHeign + "px";
-
-        var lis = document.getElementsByTagName("li");
-        for(var i = 0;i<lis.length;i++){
-            lis[i].style.width = liWidth + "px";
-        }
-
-        document.getElementsByClassName('mybutton')[0].onclick=function () {
-            clicknum++;
-            if(clicknum<picNum){
-                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
-            }
-            if(clicknum==picNum){
-                clicknum = 0;
-                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
-            }
-        }
-        document.getElementsByClassName('mybutton2')[0].onclick=function () {
-            clicknum--;
-            if(clicknum<picNum){
-                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
-            }
-            if(clicknum<0){
-                clicknum = picNum-1;
-                document.getElementById("myul").style.left = -liWidth*clicknum + "px";
-            }
-        }
-    }
-    new swip(500,300);
+    new swip(600,300);
 </script>
 </body>
 </html>
