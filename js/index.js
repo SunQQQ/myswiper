@@ -26,6 +26,11 @@ function swip(picWidth,picHeigh) {
         lis[i].style.width = liWidth + "px";
     }
 
+    // 获取points的宽度
+    pointsWidth = document.getElementById("aa");
+    pointsNumber = document.getElementsByClassName("pos")[0].getElementsByTagName("div").length;
+    console.log(pointsWidth);
+
     document.getElementsByClassName('mybutton')[0].onclick = moveRight();
 
     document.getElementsByClassName('mybutton2')[0].onclick=moveLeft();
