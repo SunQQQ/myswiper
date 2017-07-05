@@ -62,21 +62,20 @@ body{
 .points{
     text-align: center;
     position: absolute;
-    bottom: 0px;
+    bottom: 10px;
 }
 .points .pos{
     display: flex;
     align-items: center;
     border: 1px solid red;
-    /*position: absolute;*/
-    /*left: 50%;*/
-    /*display: inline;*/
+    position: relative;
+    border-radius: 15px;
 }
 .points .pos .po{
     width: 12px;
     height: 12px;
     border-radius: 15px;
-    margin: 10px;
+    margin: 2px 10px;
     background-color: red;
 
 }

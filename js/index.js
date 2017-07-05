@@ -26,10 +26,14 @@ function swip(picWidth,picHeigh) {
         lis[i].style.width = liWidth + "px";
     }
 
-    // 获取points的宽度
-    pointsWidth = document.getElementById("aa");
+    // 获取、设置points的宽度，并使其水平居中
+    pointsWidth = document.getElementsByClassName("po")[0].clientWidth;
     pointsNumber = document.getElementsByClassName("pos")[0].getElementsByTagName("div").length;
-    console.log(pointsWidth);
+    pointsTotalWidth = pointsWidth*pointsNumber+ pointsNumber*20;
+    document.getElementsByClassName("pos")[0].style.width = pointsTotalWidth+"px";
+    //水平居中
+    var pointsLeft = (picWidth-pointsTotalWidth)/2;
+    document.getElementsByClassName("pos")[0].style.left = pointsLeft + "px";
 
     document.getElementsByClassName('mybutton')[0].onclick = moveRight();
 
