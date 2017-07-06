@@ -1,6 +1,8 @@
 /**
  * Created by sunq on 2017/7/1.
  */
+// 这种写法好像不太好，以为直接设置left或者right的值。
+// 感觉封装一个方法，往方法里传参，这样就可以解决点击小点点，切换照片了。
 function moveEnter() {
     document.getElementsByClassName("mybutton")[0].style.display = "block";
     document.getElementsByClassName("mybutton2")[0].style.display = "block";
@@ -10,33 +12,45 @@ function moveOut() {
     document.getElementsByClassName("mybutton2")[0].style.display = "none";
 }
 function swip(picWidth,picHeigh) {
+    var clicknum = 0;
+
+    // 图片宽度，图片高度
     var liWidth = picWidth;
     var liHeign = picHeigh;
 
+    // 根据图片宽度设置整体构架
     var picNum = document.getElementById("myul").getElementsByTagName("li").length;
-    var clicknum = 0;
-
-    document.getElementsByClassName("points")[0].style.width = liWidth + "px";
     document.getElementById("myul").style.width = picNum * liWidth + "px";
     document.getElementsByClassName("swiper")[0].style.width = liWidth + "px";
     document.getElementsByClassName("swiper")[0].style.height = liHeign + "px";
-    document.getElementsByClassName("mybutton2")[0].style.left=liWidth -50 +"px";
     var lis = document.getElementById("myul").getElementsByTagName("li");
     for(var i = 0;i<lis.length;i++){
         lis[i].style.width = liWidth + "px";
     }
 
-    // 获取、设置points的宽度，并使其水平居中
-    pointsWidth = document.getElementsByClassName("po")[0].clientWidth;
-    pointsNumber = document.getElementsByClassName("pos")[0].getElementsByTagName("div").length;
-    pointsTotalWidth = pointsWidth*pointsNumber+ pointsNumber*20;
-    document.getElementsByClassName("pos")[0].style.width = pointsTotalWidth+"px";
-    //水平居中
-    var pointsLeft = (picWidth-pointsTotalWidth)/2;
-    document.getElementsByClassName("pos")[0].style.left = pointsLeft + "px";
+    // 设置右面按钮的位置
+    document.getElementsByClassName("mybutton2")[0].style.left=liWidth -50 +"px";
 
+    // // 获取、设置points的宽度，并使其水平居中
+    // document.getElementsByClassName("points")[0].style.width = liWidth + "px";
+    // pointsWidth = document.getElementsByClassName("po")[0].clientWidth;
+    // pointsNumber = document.getElementsByClassName("pos")[0].getElementsByTagName("div").length;
+    // pointsTotalWidth = pointsWidth*pointsNumber+ pointsNumber*20;
+    // document.getElementsByClassName("pos")[0].style.width = pointsTotalWidth+"px";
+    // //水平居中
+    // var pointsLeft = (picWidth-pointsTotalWidth)/2;
+    // document.getElementsByClassName("pos")[0].style.left = pointsLeft + "px";
+    // document.getElementById("pos").createElement("div");
+    var pos = document.getElementById("pos");
+    for(var w=0;w<picNum;w++){
+        var mydiv = document.createElement("div");
+        mydiv.setAttribute("class","po");
+        pos.append(document.createElement("div"));
+    }
+
+
+    // 左右按钮添加事件
     document.getElementsByClassName('mybutton')[0].onclick = moveRight();
-
     document.getElementsByClassName('mybutton2')[0].onclick=moveLeft();
 
     setInterval(moveRight,2000);
