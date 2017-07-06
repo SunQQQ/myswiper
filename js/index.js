@@ -24,6 +24,7 @@ function swip(picWidth,picHeigh) {
     document.getElementsByClassName("swiper")[0].style.width = liWidth + "px";
     document.getElementsByClassName("swiper")[0].style.height = liHeign + "px";
     var lis = document.getElementById("myul").getElementsByTagName("li");
+
     for(var i = 0;i<lis.length;i++){
         lis[i].style.width = liWidth + "px";
     }
@@ -43,10 +44,12 @@ function swip(picWidth,picHeigh) {
     // document.getElementById("pos").createElement("div");
     var pos = document.getElementById("pos");
     for(var w=0;w<picNum;w++){
-        var mydiv = document.createElement("div");
-        mydiv.setAttribute("class","po");
-        pos.append(document.createElement("div"));
+        var newdiv = document.createElement("div");
+        newdiv.setAttribute("class","po");
+        pos.append(newdiv);
     }
+    // 事件委托
+    document.getElementById("pos").addEventListener()
 
 
     // 左右按钮添加事件
