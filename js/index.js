@@ -38,6 +38,9 @@ function swip(picWidth,picHeigh) {
         newdiv.setAttribute("class","po");
         pos.append(newdiv);
     }
+    var po = document.getElementsByClassName("po");
+    po[0].className = "po backg";
+
 
     // // 获取、设置points的宽度，并使其水平居中
     document.getElementsByClassName("points")[0].style.width = liWidth + "px";
@@ -50,20 +53,20 @@ function swip(picWidth,picHeigh) {
     document.getElementsByClassName("pos")[0].style.left = pointsLeft + "px";
 
     // 为小点点添加监听
-    var pos = document.getElementsByClassName("po");
+    var po = document.getElementsByClassName("po");
     function pointEvent(ll){
 
-        pos[ll].onclick = function () {
+        po[ll].onclick = function () {
             // 移动图片
             clicknum = ll-1;
             moveRight();
             // 切换高亮效果
             for(var zz=0;zz<picNum;zz++){
-                if(pos[zz].className=="po backg"){
-                    pos[zz].className = "po";
+                if(po[zz].className=="po backg"){
+                    po[zz].className = "po";
                 }
             }
-            pos[ll].className ="po backg";
+            po[ll].className ="po backg";
         }
     }
     for(var ss=0;ss<picNum;ss++){
@@ -86,11 +89,11 @@ function swip(picWidth,picHeigh) {
         }
 
         for(var zz=0;zz<picNum;zz++){
-            if(pos[zz].className=="po backg"){
-                pos[zz].className = "po";
+            if(po[zz].className=="po backg"){
+                po[zz].className = "po";
             }
         }
-        pos[clicknum].className ="po backg";
+        po[clicknum].className ="po backg";
         // console.log("test");
     }
     function moveLeft(){
@@ -104,10 +107,10 @@ function swip(picWidth,picHeigh) {
         }
 
         for(var zz=0;zz<picNum;zz++){
-            if(pos[zz].className=="po backg"){
-                pos[zz].className = "po";
+            if(po[zz].className=="po backg"){
+                po[zz].className = "po";
             }
         }
-        pos[clicknum].className ="po backg";
+        po[clicknum].className ="po backg";
     }
 }
