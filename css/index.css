@@ -80,3 +80,6 @@ body{
 
     cursor:pointer;
 }
+.backg{
+    background-color: black !important;
+}
