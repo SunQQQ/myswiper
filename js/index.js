@@ -32,25 +32,33 @@ function swip(picWidth,picHeigh) {
     // 设置右面按钮的位置
     document.getElementsByClassName("mybutton2")[0].style.left=liWidth -50 +"px";
 
-    // // 获取、设置points的宽度，并使其水平居中
-    // document.getElementsByClassName("points")[0].style.width = liWidth + "px";
-    // pointsWidth = document.getElementsByClassName("po")[0].clientWidth;
-    // pointsNumber = document.getElementsByClassName("pos")[0].getElementsByTagName("div").length;
-    // pointsTotalWidth = pointsWidth*pointsNumber+ pointsNumber*20;
-    // document.getElementsByClassName("pos")[0].style.width = pointsTotalWidth+"px";
-    // //水平居中
-    // var pointsLeft = (picWidth-pointsTotalWidth)/2;
-    // document.getElementsByClassName("pos")[0].style.left = pointsLeft + "px";
-    // document.getElementById("pos").createElement("div");
     var pos = document.getElementById("pos");
     for(var w=0;w<picNum;w++){
         var newdiv = document.createElement("div");
         newdiv.setAttribute("class","po");
         pos.append(newdiv);
     }
-    // 事件委托
-    document.getElementById("pos").addEventListener()
 
+    // // 获取、设置points的宽度，并使其水平居中
+    document.getElementsByClassName("points")[0].style.width = liWidth + "px";
+    pointsWidth = document.getElementsByClassName("po")[0].clientWidth;
+    pointsNumber = document.getElementsByClassName("pos")[0].getElementsByTagName("div").length;
+    pointsTotalWidth = pointsWidth*pointsNumber+ pointsNumber*20;
+    document.getElementsByClassName("pos")[0].style.width = pointsTotalWidth+"px";
+    // //水平居中
+    var pointsLeft = (picWidth-pointsTotalWidth)/2;
+    document.getElementsByClassName("pos")[0].style.left = pointsLeft + "px";
+
+    // 为小点点添加监听
+    function pointEvent(ll){
+        document.getElementsByClassName("po")[ll].onclick = function () {
+            clicknum = ll-1;
+            moveRight();
+        }
+    }
+    for(var ss=0;ss<picNum;ss++){
+        pointEvent(ss);
+    }
 
     // 左右按钮添加事件
     document.getElementsByClassName('mybutton')[0].onclick = moveRight();
