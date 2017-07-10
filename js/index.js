@@ -77,7 +77,7 @@ function swip(picWidth,picHeigh) {
     document.getElementsByClassName('mybutton')[0].onclick = moveLeft;
     document.getElementsByClassName('mybutton2')[0].onclick=moveRight;
 
-    // setInterval(moveRight,2000);
+    setInterval(moveRight,3000);
     function moveRight() {
         clicknum++;
         if(clicknum<picNum){
